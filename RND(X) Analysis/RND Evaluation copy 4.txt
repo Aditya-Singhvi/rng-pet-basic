@@ -1,0 +1,36 @@
+10 s = 100        :rem seed value
+20 n = 100000         :rem number of trials
+30 k = 100          :rem number of bins
+
+35 sm = 0
+40 dim v(k)
+
+45 be = ti 
+
+50 for i = 1 to n
+55 du = rnd(0)
+60 r = int(k * rnd(ti))
+70 v(r) = v(r) + 1
+80 sm = sm + r
+90 next i
+
+95 print "Jiffies Elapsed:"; ti - be ; "for" ; n
+
+100 mn = sm/n
+110 sd = 0
+
+120 for j = 0 to k - 1
+130 print(v(j));
+135 if int(j/10) = j/10 then print("")
+140 sd = sd + (v(j) * (j - mn)^2)
+150 next j
+
+160 sd = sqr(sd/(n-1))
+
+175 print ""
+180 print "Mean:"; mn
+190 print "StDev:"; sd
+195 print "Seed Value:"; s
+
+200 end
+
